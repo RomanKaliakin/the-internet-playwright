@@ -1,9 +1,8 @@
 import { expect, test } from '@playwright/test';
+import { HomePage } from '../pages/HomePage';
 
 test('Homepage should display the welcome heading', async ({ page }) => {
-  await page.goto('/');
-
-  await expect(
-    page.getByRole('heading', { name: 'Welcome to the-internet' }),
-  ).toBeVisible();
+  const homePage = new HomePage(page);
+  await homePage.goto();
+  await expect(homePage.heading).toBeVisible();
 });
