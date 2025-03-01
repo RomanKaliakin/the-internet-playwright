@@ -5,7 +5,11 @@
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.50.1",
-    "@types/node": "^22.13.8"
+    "@types/node": "^22.13.8",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.2",
+    "eslint-plugin-prettier": "^5.2.3",
+    "prettier": "^3.5.2"
   },
   "scripts": {}
 }
