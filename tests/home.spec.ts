@@ -20,4 +20,10 @@ test.describe('Homepage', () => {
   test('Homepage should display the Fork me on GitHub image', async () => {
     await expect(homePage.forkMeOnGithubImage).toBeVisible();
   });
+
+  test('Homepage footer should display "Powered by Elemental Selenium" text', async () => {
+    await expect(homePage.footer).toContainText(
+      'Powered by Elemental Selenium',
+    );
+  });
 });
