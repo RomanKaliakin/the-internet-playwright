@@ -1,16 +1,19 @@
 import { expect, test } from '@playwright/test';
 import { HomePage } from '../pages/HomePage';
 
-test('Homepage should display the welcome heading', async ({ page }) => {
-  const homePage = new HomePage(page);
-  await homePage.goto();
-  await expect(homePage.welcomeHeading).toBeVisible();
-});
+test.describe('Homepage', () => {
+  let homePage: HomePage;
 
-test('Homepage should display the Available Examples heading', async ({
-  page,
-}) => {
-  const homePage = new HomePage(page);
-  await homePage.goto();
-  await expect(homePage.examplesHeading).toBeVisible();
+  test.beforeEach(async ({ page }) => {
+    homePage = new HomePage(page);
+    await homePage.goto();
+  });
+
+  test('should display the welcome heading', async () => {
+    await expect(homePage.welcomeHeading).toBeVisible();
+  });
+
+  test('should display the Available Examples heading', async () => {
+    await expect(homePage.examplesHeading).toBeVisible();
+  });
 });
