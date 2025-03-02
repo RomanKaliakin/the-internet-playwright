@@ -5,6 +5,7 @@ export class HomePage {
   readonly welcomeHeading: Locator;
   readonly examplesHeading: Locator;
   readonly forkMeOnGithubImage: Locator;
+  readonly footer: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -17,6 +18,7 @@ export class HomePage {
     this.forkMeOnGithubImage = page.getByRole('img', {
       name: 'Fork me on GitHub',
     });
+    this.footer = page.locator('#page-footer');
   }
 
   async goto() {
