@@ -16,4 +16,8 @@ test.describe('Homepage', () => {
   test('should display the Available Examples heading', async () => {
     await expect(homePage.examplesHeading).toBeVisible();
   });
+
+  test('Homepage should display the Fork me on GitHub image', async () => {
+    await expect(homePage.forkMeOnGithubImage).toBeVisible();
+  });
 });
