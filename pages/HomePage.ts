@@ -2,13 +2,23 @@ import { Locator, Page } from '@playwright/test';
 
 export class HomePage {
   readonly page: Page;
-  readonly heading: Locator;
+  readonly welcomeHeading: Locator;
+  readonly examplesHeading: Locator;
+  readonly forkMeOnGithubImage: Locator;
+  readonly footer: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    this.heading = page.getByRole('heading', {
+    this.welcomeHeading = page.getByRole('heading', {
       name: 'Welcome to the-internet',
     });
+    this.examplesHeading = page.getByRole('heading', {
+      name: 'Available Examples',
+    });
+    this.forkMeOnGithubImage = page.getByRole('img', {
+      name: 'Fork me on GitHub',
+    });
+    this.footer = page.locator('#page-footer');
   }
 
   async goto() {
