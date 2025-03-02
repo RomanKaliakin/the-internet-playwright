@@ -4,6 +4,7 @@ export class HomePage {
   readonly page: Page;
   readonly welcomeHeading: Locator;
   readonly examplesHeading: Locator;
+  readonly forkMeOnGithubImage: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -12,6 +13,9 @@ export class HomePage {
     });
     this.examplesHeading = page.getByRole('heading', {
       name: 'Available Examples',
+    });
+    this.forkMeOnGithubImage = page.getByRole('img', {
+      name: 'Fork me on GitHub',
     });
   }
 
