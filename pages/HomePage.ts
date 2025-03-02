@@ -2,11 +2,11 @@ import { Locator, Page } from '@playwright/test';
 
 export class HomePage {
   readonly page: Page;
-  readonly heading: Locator;
+  readonly welcomeHeading: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    this.heading = page.getByRole('heading', {
+    this.welcomeHeading = page.getByRole('heading', {
       name: 'Welcome to the-internet',
     });
   }
