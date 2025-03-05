@@ -27,4 +27,5 @@ test.describe('Add/Remove Elements page', () => {
       await expect(addRemoveElementsPage.deleteButtons).toHaveCount(0);
     });
   });
+  test.describe('Interaction', () => {});
 });
