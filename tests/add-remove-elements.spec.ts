@@ -10,4 +10,12 @@ test.describe('Add/Remove Elements page', () => {
     const addRemovePage = new AddRemoveElementsPage(page);
     await expect(addRemovePage.heading).toBeVisible();
   });
+
+  test('should display the "Add Element" button by default', async ({
+    page,
+  }) => {
+    const addRemovePage = new AddRemoveElementsPage(page);
+    await expect(addRemovePage.addElementButton).toBeVisible();
+    await expect(addRemovePage.addElementButton).toBeEnabled();
+  });
 });
