@@ -2,36 +2,30 @@ import { expect, test } from '@playwright/test';
 import { AddRemoveElementsPage } from '../pages/AddRemoveElementsPage';
 
 test.describe('Add/Remove Elements page', () => {
+  let addRemoveElementsPage: AddRemoveElementsPage;
+
   test.beforeEach(async ({ page }) => {
     await page.goto('/add_remove_elements/');
+    addRemoveElementsPage = new AddRemoveElementsPage(page);
   });
 
   test.describe('Initial State', () => {
-    test('should display the Add/Remove Elements heading', async ({ page }) => {
-      const addRemovePage = new AddRemoveElementsPage(page);
-      await expect(addRemovePage.heading).toBeVisible();
+    test('should display the Add/Remove Elements heading', async () => {
+      await expect(addRemoveElementsPage.heading).toBeVisible();
     });
 
-    test('should display the "Add Element" button by default', async ({
-      page,
-    }) => {
-      const addRemovePage = new AddRemoveElementsPage(page);
-      await expect(addRemovePage.addElementButton).toBeVisible();
-      await expect(addRemovePage.addElementButton).toBeEnabled();
+    test('should display the "Add Element" button by default', async () => {
+      await expect(addRemoveElementsPage.addElementButton).toBeVisible();
+      await expect(addRemoveElementsPage.addElementButton).toBeEnabled();
     });
 
-    test('should not display any Delete buttons by default', async ({
-      page,
-    }) => {
-      const addRemoveElementsPage = new AddRemoveElementsPage(page);
+    test('should not display any Delete buttons by default', async () => {
       await expect(addRemoveElementsPage.deleteButtons).toHaveCount(0);
     });
   });
+
   test.describe('Interaction', () => {
-    test('should add a single Delete button after clicking "Add Element"', async ({
-      page,
-    }) => {
-      const addRemoveElementsPage = new AddRemoveElementsPage(page);
+    test('should add a single Delete button after clicking "Add Element"', async () => {
       await addRemoveElementsPage.addElementButton.click();
       await expect(addRemoveElementsPage.deleteButtons).toHaveCount(1);
     });
