@@ -25,6 +25,11 @@ test.describe('Add/Remove Elements page', () => {
   });
 
   test.describe('Interaction', () => {
+    test('should add multiple Delete buttons', async () => {
+      await addRemoveElementsPage.clickAddElementTimes(5);
+      await expect(addRemoveElementsPage.deleteButtons).toHaveCount(5);
+    });
+
     test('should add and then delete a Delete button', async () => {
       await addRemoveElementsPage.clickAddElementTimes(1);
       await expect(addRemoveElementsPage.deleteButtons).toHaveCount(1);
