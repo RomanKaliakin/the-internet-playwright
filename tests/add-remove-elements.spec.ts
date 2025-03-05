@@ -25,9 +25,12 @@ test.describe('Add/Remove Elements page', () => {
   });
 
   test.describe('Interaction', () => {
-    test('should add a single Delete button after clicking "Add Element"', async () => {
+    test('should add and then delete a Delete button', async () => {
       await addRemoveElementsPage.addElementButton.click();
       await expect(addRemoveElementsPage.deleteButtons).toHaveCount(1);
+
+      await addRemoveElementsPage.deleteButtons.first().click();
+      await expect(addRemoveElementsPage.deleteButtons).toHaveCount(0);
     });
   });
 });
