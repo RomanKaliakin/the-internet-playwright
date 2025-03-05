@@ -18,4 +18,9 @@ test.describe('Add/Remove Elements page', () => {
     await expect(addRemovePage.addElementButton).toBeVisible();
     await expect(addRemovePage.addElementButton).toBeEnabled();
   });
+
+  test('should not display any Delete buttons by default', async ({ page }) => {
+    const addRemoveElementsPage = new AddRemoveElementsPage(page);
+    await expect(addRemoveElementsPage.deleteButtons).toHaveCount(0);
+  });
 });
