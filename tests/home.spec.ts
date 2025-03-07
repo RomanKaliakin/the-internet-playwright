@@ -26,4 +26,11 @@ test.describe('Homepage', () => {
       'Powered by Elemental Selenium',
     );
   });
+
+  test('should click the Add/Remove Elements link and verify navigation', async ({
+    page,
+  }) => {
+    await homePage.addRemoveElementsLink.click();
+    await expect(page).toHaveURL(/.*add_remove_elements/);
+  });
 });

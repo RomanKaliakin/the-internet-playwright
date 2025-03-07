@@ -6,6 +6,7 @@ export class HomePage {
   readonly examplesHeading: Locator;
   readonly forkMeOnGithubImage: Locator;
   readonly footer: Locator;
+  readonly addRemoveElementsLink: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -19,6 +20,9 @@ export class HomePage {
       name: 'Fork me on GitHub',
     });
     this.footer = page.locator('#page-footer');
+    this.addRemoveElementsLink = page.getByRole('link', {
+      name: 'Add/Remove Elements',
+    });
   }
 
   async goto() {
